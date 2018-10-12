@@ -1,0 +1,26 @@
+{
+  "name": "what-to-wear",
+  "version": "1.0.0",
+  "description": "Quickly find what type of clothing you should wear based on local weather conditions.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffborda/what-to-wear.git"
+  },
+  "author": "Jeff Borda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeffborda/what-to-wear/issues"
+  },
+  "homepage": "https://github.com/jeffborda/what-to-wear#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "superagent": "^4.0.0-beta.5"
+  }
+}
