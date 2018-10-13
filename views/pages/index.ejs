@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en">  
+  <head>
+
+    <%- include('../layout/head') %>
+
+    <title>What To Wear - Home</title>
+
+  </head>
+
+  <body>
+    <header>
+      <!-- put nav.ejs partial here -->
+    </header>
+    <main>
+      <h1>What To Wear</h1>
+
+      <form action="/getWeather" method="POST">
+        <input class="location-form" type="text" name="location" placeholder="Enter location" required>
+        <button class="location-button" type="submit">Submit</button>
+      </form>
+
+      <p>Wx Summary: <%= summary %></p>
+
+    </main>
+    <footer>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/public/js/app.js"></script>
+  </body>
+</html>
