@@ -4,7 +4,7 @@
 
     <%- include('../layout/head') %>
 
-    <title>What To Wear - Home</title>
+    <title>What To Wear - [Detail view]</title>
 
   </head>
 
@@ -15,12 +15,8 @@
     <main>
       <h1>What To Wear</h1>
 
-      <form action="/getWeather" method="GET">
-        <input class="location-form" type="text" name="location" placeholder="Enter location" required>
-        <button class="location-button" type="submit">Submit</button>
-      </form>
 
-      
+      <p>Wx Summary: <%= summary %></p>
 
     </main>
     <footer>

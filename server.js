@@ -25,21 +25,25 @@ app.get('/getWeather', getWeather);
 
 // Helper Functions
 function getWeather(request, response) {
-  const url = `https://https://maps.googleapis.com/maps/api/geocode/json?address=${request.query.data}&key=${process.env.GOOGLE_API_KEY}`;
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${request.query.location}&key=${process.env.GOOGLE_API_KEY}`;
 
   superagent.get(url)
     .then(result => {
       const location = {
-        search_query: request.query.data,
-        formatted_query: request.body.results[0].formatted_address,
+        search_query: request.query.location, /* may not need all properties of this object (MUST have lat/long)  */
+        formatted_query: result.body.results[0].formatted_address,
         latitude: result.body.results[0].geometry.location.lat,
         longitude: result.body.results[0].geometry.location.lng,
       }
 
+      console.log('location object:: ', location);
+
       const weather_url = `https://api.darksky.net/forecast/${process.env.DARK_SKY_API_KEY}/${location.latitude},${location.longitude}`;
-      superagent.get(weather_url)
+      return superagent.get(weather_url)
         .then(result => {
-          response.render('/', {summary: result.body.currently.summary});
+          console.log('LATITUDE of RESULT:: ',result.body.latitude);
+          console.log('LONGITUDE of RESULT:: ',result.body.longitude);
+          response.render('pages/detail', {summary: result.body.currently.dewPoint});
         })
         .catch(error => {
           response.render('pages/error', {errorMessage: error});
@@ -51,6 +55,13 @@ function getWeather(request, response) {
     })
 
 }
+
+// function handleError(error, response) {
+//   console.log('ERROR: ', error);
+//   if(response) {
+//     return response.status(500).send('Sorry, something went wrong.')
+//   }
+// }
 
 
 
