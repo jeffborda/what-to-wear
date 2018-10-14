@@ -47,6 +47,7 @@ function getWeather(request, response) {
 
 
           const weatherData = new WeatherSummary(result);
+          //
           console.log(weatherData);
 
           response.render('pages/detail', {summary: result.body.daily.data[0].summary});
@@ -59,6 +60,30 @@ function getWeather(request, response) {
     .catch(error => {
       response.render('pages/error', {errorMessage: error});
     })
+
+}
+
+function findClothing(weather) {
+
+  let showers = false; //showers will be light rain & no umbrella required
+  let rain = false;
+  let snow = false;
+  let hot = false;
+  let cold = false;
+
+
+
+  if(weather.precipitationProbability === 0) {
+    //No rain
+  } else if(weather.precipitationProbability > 0.3)
+
+
+
+
+
+  if(weather.summary.split(' '.includes('rain'))) {
+    //
+  }
 
 }
 
