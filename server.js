@@ -41,9 +41,13 @@ function getWeather(request, response) {
 
       return superagent.get(weather_url)
         .then(result => {
-          console.log('LATITUDE of RESULT:: ', result.body.latitude);
-          console.log('LONGITUDE of RESULT:: ', result.body.longitude);
-          console.log('TIME of RESULT:: ', result.body.currently.time);
+          // console.log('LATITUDE of RESULT:: ', result.body.latitude);
+          // console.log('LONGITUDE of RESULT:: ', result.body.longitude);
+          // console.log('TIME of RESULT:: ', result.body.currently.time);
+
+
+          const weatherData = new WeatherSummary(result);
+          console.log(weatherData);
 
           response.render('pages/detail', {summary: result.body.daily.data[0].summary});
         })
@@ -68,7 +72,17 @@ function getWeather(request, response) {
 
 // CONSTRUCTORS
 function WeatherSummary(result) {
-
+  this.icon = result.body.daily.data[0].icon; //string
+  this.summary = result.body.currently.summary; //string
+  this.dailySummary = result.body.daily.data[0].summary; //string
+  this.precipitationProbability = result.body.currently.precipProbability;
+  this.precipitationIntensity = result.body.currently.precipIntensity;
+  this.currentTemperature = result.body.currently.temperature;
+  this.precipitationType = result.body.daily.data[0].precipType;
+  this.maxTemperature = result.body.daily.data[0].temperatureHigh;
+  this.maxApparantTemperature = result.body.daily.data[0].apparentTemperatureMax;
+  this.minTemperature = result.body.daily.data[0].temperatureLow;
+  this.minApparantTemperature = result.body.daily.data[0].apparentTemperatureMin;
 }
 
 
