@@ -30,20 +30,22 @@ function getWeather(request, response) {
   superagent.get(url)
     .then(result => {
       const location = {
-        search_query: request.query.location, /* may not need all properties of this object (MUST have lat/long)  */
+        /* may not need all properties of this object (but MUST have lat/long)  */
+        search_query: request.query.location,
         formatted_query: result.body.results[0].formatted_address,
         latitude: result.body.results[0].geometry.location.lat,
         longitude: result.body.results[0].geometry.location.lng,
       }
 
-      console.log('location object:: ', location);
+      const weather_url = `https://api.darksky.net/forecast/${process.env.DARK_SKY_API_KEY}/${location.latitude},${location.longitude},${Math.floor(Date.now()/1000)}?exclude=minutely,hourly,flags`;
 
-      const weather_url = `https://api.darksky.net/forecast/${process.env.DARK_SKY_API_KEY}/${location.latitude},${location.longitude}`;
       return superagent.get(weather_url)
         .then(result => {
-          console.log('LATITUDE of RESULT:: ',result.body.latitude);
-          console.log('LONGITUDE of RESULT:: ',result.body.longitude);
-          response.render('pages/detail', {summary: result.body.currently.dewPoint});
+          console.log('LATITUDE of RESULT:: ', result.body.latitude);
+          console.log('LONGITUDE of RESULT:: ', result.body.longitude);
+          console.log('TIME of RESULT:: ', result.body.currently.time);
+
+          response.render('pages/detail', {summary: result.body.daily.data[0].summary});
         })
         .catch(error => {
           response.render('pages/error', {errorMessage: error});
@@ -62,6 +64,12 @@ function getWeather(request, response) {
 //     return response.status(500).send('Sorry, something went wrong.')
 //   }
 // }
+
+
+// CONSTRUCTORS
+function WeatherSummary(result) {
+
+}
 
 
 
