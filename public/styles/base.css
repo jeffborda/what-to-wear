@@ -4,35 +4,8 @@ body {
   font-family: 'Indie Flower', cursive;
 }
 
-nav {
-  height: 40px;
-  font-size: 30px;
-  color: black;
-  background-color: #CC98E5;
+main {
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
-nav ul li {
-  display: inline-block;
-  height: 40px;
-  padding-top: 7px;
-}
-
-nav ul li a {
-  color: black;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  color: black;
-  text-decoration: none;
-  background-color: coral;
-}
-
-
-
-
-
-/* TEMP */
-img {
-  width: 100px;
-}
