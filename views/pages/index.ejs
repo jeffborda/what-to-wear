@@ -10,10 +10,10 @@
 
   <body>
     <header>
-      <!-- put nav.ejs partial here -->
+      <%- include('../layout/nav') %>
     </header>
     <main>
-      <h1>What To Wear</h1>
+      <h1 class="page-header">What To Wear</h1>
 
       <form action="/getWeather" method="GET">
         <input class="location-form" type="text" name="location" placeholder="Enter location" required>

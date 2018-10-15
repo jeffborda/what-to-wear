@@ -10,13 +10,81 @@
 
   <body>
     <header>
-      <!-- put nav.ejs partial here -->
+      <%- include('../layout/nav') %>
     </header>
     <main>
       <h1>What To Wear</h1>
 
 
       <p>Wx Summary: <%= summary %></p>
+
+      <div class="clothing">
+
+        <section class="hats">
+            <% if (display.cap) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/cap.svg" alt="baseball hat" />
+            <% } %>
+            <% if (display.snowCap) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/winter-hat.svg" alt="winter hat" />
+            <% } %>
+        </section>
+  
+        <section class="jackets">
+            <% if (display.hoodie) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/hoodie.svg" alt="hoddie" />
+            <% } %>
+            <% if (display.rainCoat) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/raincoat.svg" alt="rain coat" />
+            <% } %>
+            <% if (display.lightJacket) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/jacket.svg" alt="light jacket" />
+            <% } %>
+            <% if (display.winterJacket) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/coat.svg" alt="winter coat" />
+            <% } %>
+        </section>
+  
+        <section class="shirts">
+            <% if (display.longTee) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/shirt.svg" alt="long sleeve T-shirt" />
+            <% } %>
+            <% if (display.shortTee) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/shirt-1.svg" alt="short sleeve T-shirt" />
+            <% } %>
+        </section>
+  
+        <section class="pants">
+            <% if (display.pants) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/trousers.svg" alt="pants" />
+            <% } %>
+            <% if (display.shorts) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/shorts.svg" alt="shorts" />
+            <% } %>
+        </section>
+  
+        <section class="shoes">
+            <% if (display.shoes) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/shoe.svg" alt="sneakers" />
+            <% } %>
+            <% if (display.rainBoots) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/boots.svg" alt="rain boots" />
+            <% } %>
+        </section>
+  
+        <section class="accessories">
+            <% if (display.umbrella) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/umbrella.svg" alt="umbrella" />
+            <% } %>
+            <% if (display.sunglasses) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/sunglasses.svg" alt="sunglasses" />
+            <% } %>
+        </section>
+
+      </div>
+
+
+
+      
 
     </main>
     <footer>

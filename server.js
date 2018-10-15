@@ -47,9 +47,13 @@ function getWeather(request, response) {
 
 
           const weatherData = new WeatherSummary(result);
+          //
           console.log(weatherData);
 
-          response.render('pages/detail', {summary: result.body.daily.data[0].summary});
+
+          // response.render('pages/detail', {myWeather: weatherData}); //Can use this to send over all weather data if necessary
+          // response.render('pages/detail', {summary: result.body.daily.data[0].summary}); //TEMP: prints Wx summary
+          response.render('pages/detail', {summary: result.body.daily.data[0].summary, display: findClothing(weatherData)}); //TEMP: prints Wx summary
         })
         .catch(error => {
           response.render('pages/error', {errorMessage: error});
@@ -61,6 +65,75 @@ function getWeather(request, response) {
     })
 
 }
+
+function findClothing(weather) {
+
+  let clothing = {
+    cap: true,
+    snowCap: false,
+    hoodie: false,
+    rainCoat: false,
+    lightJacket: false,
+    winterJacket: false,
+    longTee: true,
+    shortTee: false,
+    pants: true,
+    shorts: false,
+    shoes: true,
+    rainBoots: false,
+    umbrella: false,
+    sunglasses: false,
+  }
+
+  // Hats
+  if(weather.maxApparantTemperature < 40) {
+    clothing.cap = false;
+    clothing.snowCap = true;
+  }
+
+  // Jackets
+  if(weather.minApparantTemperature <= 35) {
+    clothing.winterJacket = true;
+  }
+  if(weather.precipProbability > 0.2 && weather.minApparantTemperature > 35) {
+    clothing.rainCoat = true;
+  }
+  if(weather.maxApparantTemperature < 70 && weather.minApparantTemperature > 35 && weather.precipitationProbability <= 0.2) {
+    clothing.hoodie = true;
+    clothing.lightJacket = true;
+  }
+
+  // Shirts
+  if(weather.maxApparantTemperature > 70) {
+    clothing.longTee = false;
+    clothing.shortTee = true;
+  }
+
+  // Pants
+  if(weather.maxApparantTemperature > 75 && weather.precipitationProbability < 0.8) {
+    clothing.pants = false;
+    clothing.shorts = true;
+  }
+
+  // Shoes
+  if(weather.precipitationProbability > 0.8) {
+    clothing.shoes = false;
+    clothing.rainBoots = true;
+  }
+
+  // Accessories
+  if(weather.cloudCover < 0.1) {
+    clothing.sunglasses = true;
+  }
+  if(weather.precipitationProbability > 0.7 && weather.precipitationType === 'rain') {
+    clothing.umbrella = true;
+  }
+
+
+  return clothing;
+}
+
+
 
 // function handleError(error, response) {
 //   console.log('ERROR: ', error);
@@ -83,6 +156,7 @@ function WeatherSummary(result) {
   this.maxApparantTemperature = result.body.daily.data[0].apparentTemperatureMax;
   this.minTemperature = result.body.daily.data[0].temperatureLow;
   this.minApparantTemperature = result.body.daily.data[0].apparentTemperatureMin;
+  this.cloudCover = result.body.daily.data[0].cloudCover;
 }
 
 
