@@ -20,6 +20,15 @@
 
       <div class="clothing">
 
+        <section class="accessories">
+            <% if (display.umbrella) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/umbrella.svg" alt="umbrella" />
+            <% } %>
+            <% if (display.sunglasses) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/sunglasses.svg" alt="sunglasses" />
+            <% } %>
+        </section>
+
         <section class="hats">
             <% if (display.cap) { %>
               <img class="clothing-icons" src="assets/clothing-icons/svg/cap.svg" alt="baseball hat" />
@@ -55,10 +64,10 @@
   
         <section class="pants">
             <% if (display.pants) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/trousers.svg" alt="pants" />
+              <img id="trousers" class="clothing-icons" src="assets/clothing-icons/svg/trousers.svg" alt="pants" />
             <% } %>
             <% if (display.shorts) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/shorts.svg" alt="shorts" />
+              <img id="shorts" class="clothing-icons" src="assets/clothing-icons/svg/shorts.svg" alt="shorts" />
             <% } %>
         </section>
   
@@ -71,15 +80,6 @@
             <% } %>
         </section>
   
-        <section class="accessories">
-            <% if (display.umbrella) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/umbrella.svg" alt="umbrella" />
-            <% } %>
-            <% if (display.sunglasses) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/sunglasses.svg" alt="sunglasses" />
-            <% } %>
-        </section>
-
       </div>
 
 
