@@ -16,7 +16,9 @@
       <h1>What To Wear</h1>
 
 
-      <p class="weather-summary">Weather Summary: <%= summary %></p>
+      <!-- <p class="weather-summary"><%= searchData.formatted_query %>: <%= localWeather.dailySummary %> High of <%= Math.round(localWeather.maxTemperature) %>° F, low of <%= Math.round(localWeather.minTemperature) %>° F.</p> -->
+
+      <p class="weather-summary"><%= searchData.formatted_query.split(',')[0] %>, <%= searchData.formatted_query.split(',')[1].split(' ')[1] %></p>
 
       <div class="clothing">
 

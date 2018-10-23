@@ -57,14 +57,7 @@
 
 /* Clothing Results */
 
-/* 
-<><>><><><><><><><><><><><><><><><><>
-Where I left off:
-Trying to centerize icons, while still
-keeping doubled items like shirts on
-the same line together.
-<><>><><><><><><><><><><><><><><><><>
-*/
+
 
 .clothing {
   margin-left: 40%
@@ -95,7 +88,7 @@ the same line together.
   margin-left: 10px;
 }
 
-.shoes img {
+.shoes img, .accessories img {
   margin-left: 20px;
   width: 70px;
 }
@@ -108,4 +101,19 @@ the same line together.
   margin-bottom: 30px;
   text-align: center;
   color: #3c94bd;
+}
+
+
+
+
+
+/* ==================================== Mobile View =================================================== */
+
+
+@media only screen and (max-width: 768px) {
+
+  .form-container button {
+    color: lime;  /* TESTING PURPOSES ONLY -- REMOVE ON DEPLOYMENT */
+    margin: 0 auto;
+  }
 }

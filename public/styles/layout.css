@@ -22,8 +22,13 @@ nav {
   height: 30px;
   width: 175px;
   border: 1px solid black;
+  border-radius: 0px;
   display: flex;
-  
+}
+
+.logo-container:hover {
+  transition: background-color 0.5s ease;
+  background-color: #45aedf;
 }
 
 .logo-container p {
@@ -34,6 +39,10 @@ nav {
   padding-top: 5px;
 
 
+}
+
+input[type="text"] {
+  margin-bottom: 30px;
 }
 
 .site-logo {
@@ -63,4 +72,6 @@ nav ul li a:visited {
   text-decoration: none;
   background-color: coral;
 }
+
+
 

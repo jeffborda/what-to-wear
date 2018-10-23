@@ -9,3 +9,9 @@ main {
   margin-right: 30px;
 }
 
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: rgb(97, 97, 97);
+  }
+}
