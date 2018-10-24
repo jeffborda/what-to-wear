@@ -16,9 +16,20 @@
       <h1>What To Wear</h1>
 
 
-      <p>Wx Summary: <%= summary %></p>
+      <!-- <p class="weather-summary"><%= searchData.formatted_query %>: <%= localWeather.dailySummary %> High of <%= Math.round(localWeather.maxTemperature) %>° F, low of <%= Math.round(localWeather.minTemperature) %>° F.</p> -->
+
+      <p class="weather-summary"><%= searchData.formatted_query.split(',')[0] %>, <%= searchData.formatted_query.split(',')[1].split(' ')[1] %></p>
 
       <div class="clothing">
+
+        <section class="accessories">
+            <% if (display.umbrella) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/umbrella.svg" alt="umbrella" />
+            <% } %>
+            <% if (display.sunglasses) { %>
+              <img class="clothing-icons" src="assets/clothing-icons/svg/sunglasses.svg" alt="sunglasses" />
+            <% } %>
+        </section>
 
         <section class="hats">
             <% if (display.cap) { %>
@@ -55,10 +66,10 @@
   
         <section class="pants">
             <% if (display.pants) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/trousers.svg" alt="pants" />
+              <img id="trousers" class="clothing-icons" src="assets/clothing-icons/svg/trousers.svg" alt="pants" />
             <% } %>
             <% if (display.shorts) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/shorts.svg" alt="shorts" />
+              <img id="shorts" class="clothing-icons" src="assets/clothing-icons/svg/shorts.svg" alt="shorts" />
             <% } %>
         </section>
   
@@ -71,15 +82,6 @@
             <% } %>
         </section>
   
-        <section class="accessories">
-            <% if (display.umbrella) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/umbrella.svg" alt="umbrella" />
-            <% } %>
-            <% if (display.sunglasses) { %>
-              <img class="clothing-icons" src="assets/clothing-icons/svg/sunglasses.svg" alt="sunglasses" />
-            <% } %>
-        </section>
-
       </div>
 
 
@@ -92,6 +94,6 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/public/js/app.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
   </body>
 </html>

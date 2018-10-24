@@ -1,7 +1,7 @@
 body {
-  background-color: black;
+  background-color: rgb(20, 20, 20);
   color: white;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Work Sans', sans-serif;
 }
 
 main {
@@ -9,3 +9,12 @@ main {
   margin-right: 30px;
 }
 
+
+@media only screen and (max-width: 760px) {
+
+
+  main {
+    margin-left: 8vw;
+    margin-right: 8vw;
+  }
+}

@@ -1,39 +1,82 @@
+/* PAGE TITLES */
 h1 {
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 56px;
+  font-family: 'Indie Flower', cursive;
   text-align: center;
 }
 
-
+/* NAVIGATION BAR and MENU */
 nav {
   height: 40px;
-  font-size: 30px;
-  color: black;
   background-color: #CC98E5;
-}
-
-nav ul li {
-  display: inline-block;
-  height: 40px;
-  padding-top: 7px;
-}
-
-nav ul li a {
   color: black;
-  text-decoration: none;
+  position: relative;
+  z-index: 1000;
 }
 
-nav ul li a:hover {
+nav .logo-container img {
+  width: 25px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+nav .main-nav .hamburger-nav::after {
+  font-family: fontawesome;
+  content: "\f0c9";
   color: black;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 9px;
+  right: 20px;
+  cursor: pointer;
+}
+
+nav .main-nav .menu {
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  padding-left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+nav .main-nav .menu a {
+  display: block;
+  background: #3a3a3a;
   text-decoration: none;
-  background-color: coral;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 0.5px solid rgb(49, 49, 49);
+}
+
+nav .main-nav .menu a:hover {
+  background: rgb(129, 129, 129);
+  transition: background 0.3s ease;
 }
 
 
+nav .main-nav .menu a li {
+  color: #3c94bd;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+}
 
+nav .main-nav .menu a:hover li {
+  color: black;
+  font-weight: bold;
+}
 
+@media only screen and (max-width: 760px) {
 
-/* TEMP */
-img {
-  width: 100px;
+  /* Home Screen Logo */
+  h1 {
+    margin-top: 10vw;
+    font-size: 15vw;
+  }
+
 }

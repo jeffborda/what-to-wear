@@ -53,7 +53,7 @@ function getWeather(request, response) {
 
           // response.render('pages/detail', {myWeather: weatherData}); //Can use this to send over all weather data if necessary
           // response.render('pages/detail', {summary: result.body.daily.data[0].summary}); //TEMP: prints Wx summary
-          response.render('pages/detail', {summary: result.body.daily.data[0].summary, display: findClothing(weatherData)}); //TEMP: prints Wx summary
+          response.render('pages/detail', {searchData: location, localWeather: weatherData, display: findClothing(weatherData)}); //TEMP: prints Wx summary
         })
         .catch(error => {
           response.render('pages/error', {errorMessage: error});
