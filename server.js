@@ -41,18 +41,12 @@ function getWeather(request, response) {
 
       return superagent.get(weather_url)
         .then(result => {
-          // console.log('LATITUDE of RESULT:: ', result.body.latitude);
-          // console.log('LONGITUDE of RESULT:: ', result.body.longitude);
-          // console.log('TIME of RESULT:: ', result.body.currently.time);
-
 
           const weatherData = new WeatherSummary(result);
-          //
+
+          // Testing weather data
           console.log(weatherData);
 
-
-          // response.render('pages/detail', {myWeather: weatherData}); //Can use this to send over all weather data if necessary
-          // response.render('pages/detail', {summary: result.body.daily.data[0].summary}); //TEMP: prints Wx summary
           response.render('pages/detail', {searchData: location, localWeather: weatherData, display: findClothing(weatherData)}); //TEMP: prints Wx summary
         })
         .catch(error => {
